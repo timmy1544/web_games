@@ -52,9 +52,9 @@ const WhackAMole = () => {
     const popMole = () => {
       const activeMoles = getRandomMoles();
       const newShowMoles = {};
-      activeMoles.map((mole) => {
-        newShowMoles[mole] = true;
-      });
+      activeMoles.map((mole) => (
+        newShowMoles[mole] = true
+      ));
       setShowMoles(newShowMoles);
       setTimeout(() => {
         setShowMoles({});
@@ -72,6 +72,7 @@ const WhackAMole = () => {
 
   const hill = (
     <img
+      alt="mole-hill"
       src="https://www.greatfrontend.com/img/questions/whack-a-mole/mole-hill.png"
       className="hill-img"
     />
@@ -79,6 +80,7 @@ const WhackAMole = () => {
 
   const mole = (index) => (
     <img
+      alt="mole-head"
       src="https://www.greatfrontend.com/img/questions/whack-a-mole/mole-head.png"
       className={`mole-img`}
       onClick={() => handleMoleClick(index)}
