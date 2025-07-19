@@ -1,4 +1,4 @@
-import './WhackAMole.css'
+import "./WhackAMole.css";
 import { useState, useEffect } from "react";
 
 const WhackAMole = () => {
@@ -52,9 +52,7 @@ const WhackAMole = () => {
     const popMole = () => {
       const activeMoles = getRandomMoles();
       const newShowMoles = {};
-      activeMoles.map((mole) => (
-        newShowMoles[mole] = true
-      ));
+      activeMoles.map((mole) => (newShowMoles[mole] = true));
       setShowMoles(newShowMoles);
       setTimeout(() => {
         setShowMoles({});
@@ -149,6 +147,6 @@ const WhackAMole = () => {
       <div className="hills">{hillRenderer()}</div>
     </div>
   );
-}
+};
 
 export default WhackAMole;

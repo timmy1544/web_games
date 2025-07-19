@@ -1,3 +1,3 @@
-import Snake from './Snake';
+import Snake from "./Snake";
 
 export default Snake;

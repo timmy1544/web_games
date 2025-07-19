@@ -1,4 +1,4 @@
-import './MainPage.scss';
+import "./MainPage.scss";
 import { useNavigate } from "react-router-dom";
 
 const DEFAULT_CLASSNAME = "main-page";
@@ -24,26 +24,26 @@ const GAME_LIST = [
 
 // Color palette for buttons
 const COLOR_PALETTE = [
-  '#A23C26',
-  '#E2552D',
-  '#748C69',
-  '#FF9687',
-  '#9EB4D3',
-  '#BCAFCF',
-  '#515B87',
-  '#FDD878'
+  "#A23C26",
+  "#E2552D",
+  "#748C69",
+  "#FF9687",
+  "#9EB4D3",
+  "#BCAFCF",
+  "#515B87",
+  "#FDD878",
 ];
 
 const MainPage = () => {
   const navigate = useNavigate();
-  
+
   const gameListRenderer = () => {
     return GAME_LIST.map((game, index) => (
-      <button 
-        className={`${DEFAULT_CLASSNAME}__button`} 
+      <button
+        className={`${DEFAULT_CLASSNAME}__button`}
         onClick={() => navigate(game.path)}
         style={{
-          backgroundColor: COLOR_PALETTE[index % COLOR_PALETTE.length]
+          backgroundColor: COLOR_PALETTE[index % COLOR_PALETTE.length],
         }}
         key={index}
       >
@@ -60,6 +60,6 @@ const MainPage = () => {
       </div>
     </div>
   );
-}
+};
 
 export default MainPage;

@@ -1,4 +1,4 @@
-import './TicTacToe.scss';
+import "./TicTacToe.scss";
 import { useState, useEffect } from "react";
 
 const defaultBoard = {
@@ -104,6 +104,6 @@ const TicTacToe = () => {
       </button>
     </div>
   );
-}
+};
 
 export default TicTacToe;

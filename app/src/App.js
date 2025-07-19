@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WhackAMole from './games/whack_a_mole';
-import MainPage from './games/MainPage';
-import MemoryGame from './games/memory_game';
-import TicTacToe from './games/tic-tac-toe';
-import GameLayout from './components/GameLayout';
-import Snake from './games/snake';
+import WhackAMole from "./games/whack_a_mole";
+import MainPage from "./games/MainPage";
+import MemoryGame from "./games/memory_game";
+import TicTacToe from "./games/tic-tac-toe";
+import GameLayout from "./components/GameLayout";
+import Snake from "./games/snake";
 
 const App = () => {
   return (
@@ -20,6 +20,6 @@ const App = () => {
       </GameLayout>
     </Router>
   );
-}
+};
 
 export default App;

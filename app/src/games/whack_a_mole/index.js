@@ -1,2 +1,2 @@
-import WhackAMole from './WhackAMole'
+import WhackAMole from "./WhackAMole";
 export default WhackAMole;

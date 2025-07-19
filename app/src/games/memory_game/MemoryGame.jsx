@@ -1,4 +1,4 @@
-import './MemoryGame.scss';
+import "./MemoryGame.scss";
 import { useState, useEffect, useRef } from "react";
 
 const emojis = [
@@ -53,12 +53,13 @@ const MemoryGame = () => {
       .sort(() => Math.random() - 0.5);
 
     const board = {};
-    emojiArr.map((item, index) => (
-      board[index] = {
-        value: item,
-        index,
-      }
-    ));
+    emojiArr.map(
+      (item, index) =>
+        (board[index] = {
+          value: item,
+          index,
+        }),
+    );
     return board;
   };
 
@@ -168,6 +169,6 @@ const MemoryGame = () => {
       )}
     </div>
   );
-}
+};
 
 export default MemoryGame;
