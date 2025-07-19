@@ -4,6 +4,7 @@ import MainPage from './games/MainPage';
 import MemoryGame from './games/memory_game';
 import TicTacToe from './games/tic-tac-toe';
 import GameLayout from './components/GameLayout';
+import Snake from './games/snake';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/WhackAMole" element={<WhackAMole />} />
           <Route path="/MemoryGame" element={<MemoryGame />} />
           <Route path="/TicTacToe" element={<TicTacToe />} />
+          <Route path="/Snake" element={<Snake />} />
         </Routes>
       </GameLayout>
     </Router>

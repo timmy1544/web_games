@@ -16,6 +16,10 @@ const GAME_LIST = [
     name: "Tic Tac Toe",
     path: "/TicTacToe",
   },
+  {
+    name: "Snake",
+    path: "/Snake",
+  },
 ];
 
 // Color palette for buttons
