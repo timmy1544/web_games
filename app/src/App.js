@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import GameLayout from "./components/GameLayout";
 import WhackAMole from "./games/whack_a_mole";
 import MainPage from "./games/MainPage";
 import MemoryGame from "./games/memory_game";
 import TicTacToe from "./games/tic-tac-toe";
-import GameLayout from "./components/GameLayout";
 import Snake from "./games/snake";
+import FileExplorer from './games/file_explorer'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/MemoryGame" element={<MemoryGame />} />
           <Route path="/TicTacToe" element={<TicTacToe />} />
           <Route path="/Snake" element={<Snake />} />
+          <Route path='/FileExplorer' element={<FileExplorer />}/>
         </Routes>
       </GameLayout>
     </Router>

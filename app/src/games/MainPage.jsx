@@ -20,6 +20,10 @@ const GAME_LIST = [
     name: "Snake",
     path: "/Snake",
   },
+    {
+    name: "File Explorer",
+    path: "/FileExplorer",
+  },
 ];
 
 // Color palette for buttons
@@ -54,7 +58,7 @@ const MainPage = () => {
 
   return (
     <div className={DEFAULT_CLASSNAME}>
-      <h1 className={`${DEFAULT_CLASSNAME}-title`}>Web Games Practices</h1>
+      <h1 className={`${DEFAULT_CLASSNAME}-title`}>UI Components Practices</h1>
       <div className={`${DEFAULT_CLASSNAME}__button-container`}>
         {gameListRenderer()}
       </div>
