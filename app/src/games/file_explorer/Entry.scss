@@ -1,0 +1,11 @@
+.entry {
+
+    &__name {
+        display: flex;
+        flex-direction: row;
+
+        &--canExpand {
+            cursor: pointer;
+        }
+    }
+}
