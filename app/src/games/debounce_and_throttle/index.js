@@ -1,2 +1,2 @@
-import DeboundAndThrottle from './DebounceAndThrootle';
+import DeboundAndThrottle from './DebounceAndThrottle';
 export default DeboundAndThrottle;
