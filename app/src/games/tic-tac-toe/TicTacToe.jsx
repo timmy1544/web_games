@@ -1,109 +1,80 @@
-import "./TicTacToe.scss";
-import { useState, useEffect } from "react";
+import './TicTacToe.scss'
+import { useState } from 'react';
 
-const defaultBoard = {
-  1: null,
-  2: null,
-  3: null,
-  4: null,
-  5: null,
-  6: null,
-  7: null,
-  8: null,
-  9: null,
-};
 
-const winRule = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7],
-];
+const DEFAULT_BOARD = [];
+for (let i = 0; i < 9; i++) {
+  DEFAULT_BOARD.push(null);
+}
+
+const winConditions = [
+  [0,1,2],
+  [3,4,5],
+  [6,7,8],
+  [0,3,6],
+  [1,4,7],
+  [2,5,8],
+  [0,4,8],
+  [2,4,6],
+]
+
 
 const TicTacToe = () => {
-  const [board, setBoard] = useState(defaultBoard);
-  const [turn, setTurn] = useState(true);
+  const [board, setBoard] = useState(DEFAULT_BOARD);
+  const [turn, setTurn] = useState(true) // true for O and false for X;
   const [winner, setWinner] = useState(null);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(0)
 
-  const handleGridClick = (grid) => {
-    if (board[grid] !== null || winner) {
-      return;
+  const handleClick = (id) => {
+    if (board[id] === null && !winner) {
+      const newboard = board.slice();
+      newboard[id] = turn ? 'O' : 'X';
+      setBoard(newboard);
+      setTurn(prev => !prev);
+      setStep(prev => prev + 1);
+
+      checkWinner(newboard, step + 1);
     }
-    setBoard({
-      ...board,
-      [grid]: turn,
-    });
-    setTurn((prev) => !prev);
-    setStep((prev) => prev + 1);
-  };
+  }
 
   const handleResetClick = () => {
-    setBoard(defaultBoard);
+    setBoard(DEFAULT_BOARD)
     setTurn(true);
     setWinner(null);
-    setStep(0);
-  };
+    setStep(0)
+  }
 
-  const getMark = (item) => {
-    if (board[item] === null) {
-      return "";
-    } else if (board[item]) {
-      return "O";
-    } else {
-      return "X";
-    }
-  };
-  const boardRenderer = () => {
-    return Object.keys(board).map((item, index) => (
-      <div
-        className={"cell"}
-        onClick={() => handleGridClick(index + 1)}
-        key={index}
-      >
-        {getMark(item)}
-      </div>
-    ));
-  };
-
-  const getMessage = () => {
-    if (winner !== null) {
-      return `Player ${winner ? "O" : "X"} wins!`;
-    } else if (step === 9) {
-      return "Draw!";
-    } else {
-      return `Player ${turn ? "O" : "X"}'s turn`;
-    }
-  };
-
-  // Check winner when board updates
-  const checkWin = (board) => {
-    for (let rule of winRule) {
-      const [a, b, c] = rule;
-      if (board[a] !== null && board[a] === board[b] && board[a] === board[c]) {
-        return board[a]; // true (O) or false (X)
+  const checkWinner = (newboard) => {
+    for (let i = 0; i < winConditions.length; i++) {
+      if (newboard[winConditions[i][0]] === newboard[winConditions[i][1]] && newboard[winConditions[i][1]] === newboard[winConditions[i][2]]) {
+        setWinner(newboard[winConditions[i][0]])
+        return
       }
     }
-    return null;
-  };
-  useEffect(() => {
-    const result = checkWin(board);
-    if (result !== null) setWinner(result);
-  }, [board]);
+  }
+
+  const renderMessage = () => {
+    if (winner) {
+      return `${winner} win!`
+    } else if (!winner && step === 9) {
+      return 'Draw!'
+    }
+    return `${turn ? 'O' : 'X'}'s turn`
+  }
+
+  
 
   return (
-    <div className={"tic-tac-toe-container"}>
-      <div className={"message"}>{getMessage()}</div>
-      <div className={"board"}>{boardRenderer()}</div>
-      <button className={"button"} onClick={handleResetClick}>
-        {"Reset"}
-      </button>
+    <div className='tic-tac-toe-container'>
+      <div>{renderMessage()}</div>
+      <div className='board'>
+        {board.map((cell, index) => (
+          <div className='cell' onClick={() => handleClick(index)} key={`${cell}-${index}`}>{cell}</div>
+        ))}
+      </div>
+      <button className='button' onClick={handleResetClick}>Reset</button>
     </div>
-  );
-};
+  )
+}
 
 export default TicTacToe;

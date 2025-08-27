@@ -11,7 +11,7 @@ body {
   gap: 20px;
 
   .board {
-    display: grid;
+    display:grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 10px; /* Spacing between grid items */
