@@ -28,6 +28,10 @@ const GAME_LIST = [
     name: "Traffic Light",
     path: "/TrafficLight",
   },
+  {
+    name: "Debounce & Throttle",
+    path: "/DebounceThrottle",
+  }
 ];
 
 // Color palette for buttons
