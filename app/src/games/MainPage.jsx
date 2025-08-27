@@ -20,9 +20,13 @@ const GAME_LIST = [
     name: "Snake",
     path: "/Snake",
   },
-    {
+  {
     name: "File Explorer",
     path: "/FileExplorer",
+  },
+  {
+    name: "Traffic Light",
+    path: "/TrafficLight",
   },
 ];
 

@@ -4,10 +4,11 @@
   align-items: center;
   justify-content: start;
   height: 80vh;
-
+  
   &__button-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; 
     gap: 10px;
   }
 

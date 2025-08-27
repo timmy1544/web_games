@@ -6,6 +6,7 @@ import MemoryGame from "./games/memory_game";
 import TicTacToe from "./games/tic-tac-toe";
 import Snake from "./games/snake";
 import FileExplorer from './games/file_explorer'
+import TrafficLight from "./games/traffic_light";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/TicTacToe" element={<TicTacToe />} />
           <Route path="/Snake" element={<Snake />} />
           <Route path='/FileExplorer' element={<FileExplorer />}/>
+          <Route path='TrafficLight' element={<TrafficLight/>}/>
         </Routes>
       </GameLayout>
     </Router>
